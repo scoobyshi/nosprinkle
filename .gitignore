@@ -1,0 +1,6 @@
+# Dependencies
+node_modules
+
+# Config with Key
+config.json
+config.mail.json

@@ -1,0 +1,16 @@
+{
+  "name": "nosprinkle",
+  "version": "0.0.1",
+  "description": "Rain Bypass",
+  "main": "nosprinkle.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Scott Justason",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "request": "^2.74.0",
+    "nodemailer": "^2.3.2",
+    "onoff": "^1.0.4"
+  },
+}

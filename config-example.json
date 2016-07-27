@@ -1,0 +1,11 @@
+{
+  "api": {
+    "key": "input-api-key",
+    "options": {
+      "yesterday": 1,
+      "currentConditions": 1,
+      "forecast": 1
+    }
+  }
+}
+
