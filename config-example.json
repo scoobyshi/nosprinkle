@@ -6,6 +6,11 @@
       "currentConditions": 1,
       "forecast": 1
     }
+  },
+  "sprinkler": {
+    "threshold": 5,
+    "pin": 18,
+    "status": "high"
   }
 }
 

@@ -5,7 +5,7 @@ var Gpio = require('onoff').Gpio;
 var sprinkler = new Gpio(config.sprinkler.pin, config.sprinkler.status);
 
 function check_status(weather, period) {
-  var today_accumulation = parseFloat(weather.current_observation.precip_today_metric);
+  var today_accumulation = 1.1; // parseFloat(weather.current_observation.precip_today_metric);
   var yesterday = parseFloat(weather.history.dailysummary[0].precipm);
   var today_forecast = parseFloat(weather.forecast.simpleforecast.forecastday[period].qpf_allday.mm);
   var total_24hour = yesterday + today_accumulation + today_forecast;
@@ -36,10 +36,10 @@ request({
 
   // Threshold is 10mm or Check for 25 mm which is about 1 inch, recommended for daily watering
   // Trigger override on sprinkler system, if override, send email; Add tracking in Google Analytics or Initial State?
-  if (rain > 5) {
+  if (rain > config.sprinkler.threshold) {
     setTimeout(function() {
       sprinkler.write(1);
-    },3600000);  // After 1 hour return the sprinkler to normal operation
+    },3600000);  // After 1 hour (3600000) return the sprinkler to normal operation, schedule with crontab
     sprinkler.write(0); // Disable the sprinkler by pulling the pin low which triggers the relay to interrupt the ground and break the circuit
 
     console.log("No Sprinkling Today!");
